@@ -3,25 +3,32 @@
 
 ///nicks usuarios que acceden : profesor1 , tutor1 y tutor 2///
 
-//let identificar = true
-//let intentos = 1//
+//debugger//
 
-//do{//
+let ingreso = true
+let intentos = 1
 
-let usuarioPagina = prompt("ingresa tu nick de usuario").toLowerCase()
-
-//let profesor1 = "lautaro"//
-
-//if(usuario=== null){
-//
-
-if(usuarioPagina == "profesor1"){
-    alert ("bienvenido "+ " " + "lautaro")
-}else if(usuarioPagina=="tutor1"){
-    alert ("bienvenido" + " " + "ramiro")
-}else if(usuarioPagina == "tutor2"){
-    alert ("bienvenido" + " " + "profe")
-}else{
-    alert("esta pagina es solo para profesores/tutores")
-}
-//}while(identificar)//
+do{
+    let usuarioPagina = prompt("ingresa tu nick de usuario").toLowerCase()
+    if(usuarioPagina === null){
+        break
+    }
+    if(usuarioPagina == "profesor1" && intentos <=5){
+        alert ("bienvenido "+ " " + "lautaro")
+        ingreso = false
+    }else if(usuarioPagina == "tutor1" && intentos <=5){
+        alert ("bienvenido" + " " + "ramiro")
+        ingreso = false
+    }else if(usuarioPagina == "tutor2" && intentos <=5){
+        alert ("bienvenido" + " " + "profe")
+        ingreso = false
+    }else{
+        alert("no esta registrado señor"+ " " + usuarioPagina)
+        intentos++
+        if(intentos >5){
+            alert("6 veces fallo en su ingreso, pruebe otro dia")
+            console.error("Este usuario no esta registrado")
+            break
+        }
+    }
+}while(ingreso)
