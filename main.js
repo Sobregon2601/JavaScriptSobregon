@@ -5,6 +5,8 @@
 
 //debugger//
 
+function ingresar(){
+
 let ingreso = true
 let intentos = 1
 
@@ -32,3 +34,7 @@ do{
         }
     }
 }while(ingreso)
+
+}
+
+ingresar()
