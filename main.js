@@ -1,7 +1,27 @@
 
+class campeon{
+    constructor ( nombre , linea, rol){
+        this.nombre = nombre,
+        this.linea = linea;
+        this.rol = rol;
+    }
+    saludar(){
+        console.log( "Bienvenido campeon")
+    }
+    /*rechazar(){
+        console.log( this.nombre + " " + "no es un invocador")
+    }*/
+}
+
+const mathias = new campeon ("warwick", "jungla", "asesino");
+const ivan = new campeon ("varus", "adc" , "mago");
+const alicia = new campeon ("akali", "mid", "asesina");
+const juan = new campeon ("sion", "top", "tanque");
+const nicolas = new campeon ("leona", "support", "tanque");
 
 
-///nicks usuarios que acceden : profesor1 , tutor1 y tutor 2///
+let lista = [mathias, ivan, alicia, juan, nicolas]
+
 
 //debugger//
 
@@ -13,24 +33,35 @@ let intentos = 1
 do{
     let usuarioPagina = prompt("ingresa tu nick de usuario").toLowerCase()
     if(usuarioPagina === null){
-        break
+        continue
     }
-    if(usuarioPagina == "profesor1" && intentos <=5){
-        alert ("bienvenido "+ " " + "lautaro")
+    if(usuarioPagina == "mathias" && intentos <=5){
+        alert ("Bienvenido "+ mathias.nombre + " el " + mathias.rol)
+        mathias.saludar();
         ingreso = false
-    }else if(usuarioPagina == "tutor1" && intentos <=5){
-        alert ("bienvenido" + " " + "ramiro")
+    }else if(usuarioPagina == "ivan" && intentos <=5){
+        alert ("Bienvenido " + ivan.nombre + " el " + ivan.rol)
+        ivan.saludar();
         ingreso = false
-    }else if(usuarioPagina == "tutor2" && intentos <=5){
-        alert ("bienvenido" + " " + "profe")
+    }else if(usuarioPagina == "alicia" && intentos <=5){
+        alert ("Bienvenido " + alicia.nombre + " la " + alicia.rol)
+        alicia.saludar();
+        ingreso = false
+    }else if(usuarioPagina == "juan" && intentos <=5){
+        alert ("Bienvenido " + juan.nombre + " el " + juan.rol)
+        juan.saludar();
+        ingreso = false
+    }else if(usuarioPagina == "nicolas" && intentos <=5){
+        alert ("Bienvenido " + nicolas.nombre + " la " + nicolas.rol)
+        nicolas.saludar();
         ingreso = false
     }else{
-        alert("no esta registrado señor"+ " " + usuarioPagina)
+        alert("No esta registrado señor"+ " " + usuarioPagina)
         intentos++
         if(intentos >5){
             alert("6 veces fallo en su ingreso, pruebe otro dia")
-            console.error("Este usuario no esta registrado")
-            break
+            console.error("Este invocador no esta registrado")
+            break;
         }
     }
 }while(ingreso)
