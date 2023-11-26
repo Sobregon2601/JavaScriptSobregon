@@ -31,7 +31,7 @@ let ingreso = true
 let intentos = 1
 
 do{
-    let usuarioPagina = prompt("¿Quien desea entrar a la grieta del invodador?").toLowerCase()
+    let usuarioPagina = prompt( "¿Quien desea entrar a la grieta del invodador?" ).toLowerCase()
     if(usuarioPagina === null){
         continue
     }
