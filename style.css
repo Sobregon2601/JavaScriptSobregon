@@ -1,0 +1,13 @@
+body{
+    background-image: url(./assets/content-original-championillustrations-group-slashes-9828cf13cecf88fb9f21ee17afa6874e.jpg); 
+    background-size: cover;
+}
+
+h1, h2, p{
+    text-align: center;
+}
+
+div{
+    text-align: center;
+
+}
