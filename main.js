@@ -9,6 +9,8 @@ function saludar() {
     console.log("Bienvenido campeon")
 }
 
+
+
 const campeon1 = new Campeon("Warwick", "Jungla", "Asesino", 'assets/warwick.jpg');
 const campeon2 = new Campeon("Varus", "Adc", "Mago", 'assets/varus.jpg');
 const campeon3 = new Campeon("Akali", "Mid", "Asesino", 'assets/sion.jpg');
@@ -17,11 +19,93 @@ const campeon5 = new Campeon("Leona", "Jungla", "Tanque", 'assets/leona.jpg');
 
 let lista = [campeon1, campeon2, campeon3, campeon4, campeon5];
 
-if (localStorage.getItem("campeon")) {
-    lista = JSON.parse(localStorage.getItem("campeon"));
+if (localStorage.getItem("Campeon")) {
+    lista = JSON.parse(localStorage.getItem("Campeon"))
 } else {
     lista = lista;
 }
+
+
+function agregarcampeon(){
+
+    const form = document.createElement("form")  //creo el formulario desde js
+    form.innerHTML=`
+    <label for="nombre-input">Nombre:</label>
+    <input id= "nombre-input" type="text" step="0.01" >
+    
+    <label for="linea-input">Linea:</label>
+    <input id= "linea-input" type="text" step="0.01" >
+
+    <label for="rol-input">Rol:</label>
+    <input id= "rol-input" type="text" step="0.01" >
+
+    "Nuestro equipo de diseño trabajara en la imagen"
+
+    <button type="submit">Agregar</button>
+    `
+
+    form.addEventListener("submit", function (e){ //prevengo el envio del formulario para poder validarlo antes
+        e.preventDefault();
+
+        const nombreInput = document.getElementById("nombre-input").value.trim()
+        const lineaInput = document.getElementById("linea-input".value)
+        const rolInput = document.getElementById("rol-input".value)
+
+        if(lineaInput === "" || rolInput === "" || nombreInput === ""){
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Ingresa correctamente los datos",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
+            return
+        }
+
+        const campeon = new Campeon (nombreInput, lineaInput, rolInput)
+
+        if (lista.some( (elemento)=> elemento.nombre === Campeon.nombre)){ 
+            alert("el campeon ya existe")
+            return
+        }
+
+        lista.push(campeon) 
+        localStorage.setItem("campeon", JSON.stringify(lista))
+        alert(`se agrego el producto ${campeon.nombre} a la lista`)  
+
+        const container =  document.createElement("div")
+        
+        lista.forEach((campeon)=>{
+            const card = document.createElement("div")
+
+        const nombre = document.createElement("h2")
+        nombre.textContent = `nombre: ${campeon.nombre}`
+        card.appendChild(nombre)
+
+        const linea = document.createElement("p")
+        linea.textContent = `linea: ${campeon.linea}`
+        card.appendChild(linea)
+
+        const rol = document.createElement("p")
+        rol.textContent = `rol: ${campeon.rol}`
+        card.appendChild(rol)
+        container.appendChild(card)
+        })
+
+        const body = document.querySelector("body")
+        body.appendChild(container) 
+
+        form.reset() 
+
+    })
+
+    const body = document.querySelector("body")
+    body.appendChild(form)
+
+}
+
+
+
+
 
 function filtrarCampeon() {
     const body = document.querySelector("body");
@@ -31,6 +115,7 @@ function filtrarCampeon() {
 
     if (resultado.length > 0) {
         const container = document.createElement("div");
+        container.classList.add("container")
 
         resultado.forEach((campeon) => {
             const card = document.createElement("div");
@@ -56,12 +141,20 @@ function filtrarCampeon() {
         body.appendChild(container);
 
     } else {
-        alert("Campeon no disponible");
-    }
+        confirm("Este campeon no existe, ¿Deseas agregarlo?")
+            if(confirm === true ) agregarcampeon()
+        
+    } 
 }
 
 const inputCampo = document.getElementById("seleccionchamp");
 const filtrarboton = document.getElementById("seleccion");
+
+/*function limpiarFormulario() {
+    document.getElementById("seleccionchamp").reset();
+}/*/
+
+
 
 
 inputCampo.addEventListener("keyup", function(event) {
@@ -70,5 +163,9 @@ inputCampo.addEventListener("keyup", function(event) {
     }
 });
 
+
 filtrarboton.addEventListener("click", () => {filtrarCampeon();
 });
+
+const agregarBtn = document.getElementById("agregarcampeon")
+agregarBtn.addEventListener("click",agregarcampeon)

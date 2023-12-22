@@ -56,7 +56,7 @@ do{
 ingresar()
 */
 
-
+/*
 function MiConstructor(imagenURL) {
     this.imagen = new Image( );
     this.imagen.src = imagenURL
@@ -64,11 +64,95 @@ function MiConstructor(imagenURL) {
 
 
 
-     code// Crea un nuevo elemento de imagen 
+
     var img = document.createElement('img'); 
-     
-    // Establece la ubicación de la imagen 
+
     img.src = 'ruta/a/mi/imagen.jpg'; 
-     
-    // Agrega la imagen al documento 
+
     document.body.appendChild(img); 
+
+    function limpiarFormulario() {
+        document.getElementById("miForm").reset();
+}
+*/
+
+
+//agregar productos
+function agregarcampeon(){
+
+    const form = document.createElement("form")  //creo el formulario desde js
+    form.innerHTML=`
+    <label for="nombre-input">Nombre:</label>
+    <input id= "nombre-input" type="text" step="0.01" >
+    
+    <label for="linea-input">Linea:</label>
+    <input id= "linea-input" type="text" step="0.01" >
+
+    <label for="rol-input">Rol:</label>
+    <input id= "rol-input" type="text" step="0.01" >
+
+    <button type="submit">Agregar</button>
+    `
+
+    form.addEventListener("submit", function (e){ //prevengo el envio del formulario para poder validarlo antes
+        e.preventDefault();
+
+        const nombreInput = document.getElementById("nombre-input").value.trim()
+        const lineaInput = document.getElementById("linea-input".value)
+        const rolInput = document.getElementById("rol-input".value)
+
+        if(lineaInput === "" || rolInput === "" || nombreInput === ""){
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Ingresa correctamente los datos",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
+            return
+        }
+
+        const campeon = new Campeon (nombreInput, lineaInput, rolInput)
+
+        if (lista.some( (elemento)=> elemento.nombre === Campeon.nombre)){ 
+            alert("el campeon ya existe")
+            return
+        }
+
+        lista.push(campeon) 
+        localStorage.setItem("campeon", JSON.stringify(lista))
+        alert(`se agrego el producto ${campeon.nombre} a la lista`)  
+
+        const container =  document.createElement("div")
+        
+        lista.forEach((Campeon)=>{
+            const card = document.createElement("div")
+
+        const nombre = document.createElement("h2")
+        nombre.textContent = `nombre: ${campeon.nombre}`
+        card.appendChild(nombre)
+
+        const linea = document.createElement("p")
+        linea.textContent = `linea: ${campeon.linea}`
+        card.appendChild(linea)
+
+        const rol = document.createElement("p")
+        rol.textContent = `rol: ${campeon.rol}`
+        card.appendChild(rol)
+        container.appendChild(card)
+        })
+
+        const body = document.querySelector("body")
+        body.appendChild(container) 
+
+        form.reset() 
+
+    })
+
+    const body = document.querySelector("body")
+    body.appendChild(form)
+
+}
+
+
+const agregarBtn = document.getElementById("agregarProducto")
+agregarBtn.addEventListener("click",agregarProducto)

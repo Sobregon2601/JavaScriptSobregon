@@ -1,13 +1,33 @@
+
+
 body{
-    background-image: url(./assets/content-original-championillustrations-group-slashes-9828cf13cecf88fb9f21ee17afa6874e.jpg); 
+    
+    margin: 0;
+    padding: 0;
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-image: url(./assets/content-original-championillustrations-group-slashes-9828cf13cecf88fb9f21ee17afa6874e.jpg);     
 }
+
+
 
 h1, h2, p{
     text-align: center;
+    font-size: 3rem;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 1px black;
+
 }
 
 div{
     text-align: center;
 
 }
+
+
+.container{
+    font-size: 2rem;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 1px black;
+}   
