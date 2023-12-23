@@ -28,7 +28,7 @@ if (localStorage.getItem("Campeon")) {
 
 function agregarcampeon(){
 
-    const form = document.createElement("form")  //creo el formulario desde js
+    const form = document.createElement("form")  
     form.innerHTML=`
     <label for="nombre-input">Nombre:</label>
     <input id= "nombre-input" type="text" step="0.01" >
@@ -44,19 +44,20 @@ function agregarcampeon(){
     <button type="submit">Agregar</button>
     `
 
-    form.addEventListener("submit", function (e){ //prevengo el envio del formulario para poder validarlo antes
+    form.classList.add("containeragregar")
+
+    form.addEventListener("submit", function (e){ 
         e.preventDefault();
 
         const nombreInput = document.getElementById("nombre-input").value.trim()
-        const lineaInput = document.getElementById("linea-input".value)
-        const rolInput = document.getElementById("rol-input".value)
+        const lineaInput = document.getElementById("linea-input").value.trim()
+        const rolInput = document.getElementById("rol-input").value.trim()
 
-        if(lineaInput === "" || rolInput === "" || nombreInput === ""){
+        if( nombreInput === "" || lineaInput === "" || rolInput === ""){
             Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Ingresa correctamente los datos",
-                footer: '<a href="#">Why do I have this issue?</a>'
+                title: "No has agregado ningun campeon",
+                text: "¿Vas a usar un campeon ya creado?",
+                icon: "question"
             });
             return
         }
@@ -70,7 +71,22 @@ function agregarcampeon(){
 
         lista.push(campeon) 
         localStorage.setItem("campeon", JSON.stringify(lista))
-        alert(`se agrego el producto ${campeon.nombre} a la lista`)  
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 10000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: "success",
+            title: "El campeon fue agregado"
+        });
+        alert(`Se agrego el producto ${campeon.nombre} a la lista`)  
 
         const container =  document.createElement("div")
         
@@ -141,20 +157,16 @@ function filtrarCampeon() {
         body.appendChild(container);
 
     } else {
-        confirm("Este campeon no existe, ¿Deseas agregarlo?")
-            if(confirm === true ) agregarcampeon()
+        let pregunta = confirm("Este campeon no existe, ¿Deseas agregarlo?")
+        if (pregunta==true){
+            agregarcampeon()
+        }
         
     } 
 }
 
 const inputCampo = document.getElementById("seleccionchamp");
 const filtrarboton = document.getElementById("seleccion");
-
-/*function limpiarFormulario() {
-    document.getElementById("seleccionchamp").reset();
-}/*/
-
-
 
 
 inputCampo.addEventListener("keyup", function(event) {
