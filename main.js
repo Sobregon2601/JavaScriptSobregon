@@ -155,15 +155,16 @@ function filtrarCampeon() {
             container.appendChild(card);
         });
         body.appendChild(container);
-
-    } else {
+        } else if( "seleccionchamp" === "") { 
+            Swal.fire("No has seleccionado ningun campeon");
+        } else  {
         let pregunta = confirm("Este campeon no existe, ¿Deseas agregarlo?")
-        if (pregunta==true){
+        if (pregunta==true)
             agregarcampeon()
         }
-        
-    } 
-}
+
+    }
+
 
 const inputCampo = document.getElementById("seleccionchamp");
 const filtrarboton = document.getElementById("seleccion");
