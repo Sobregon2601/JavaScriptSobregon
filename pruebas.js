@@ -163,12 +163,55 @@ let link = "https://www.leagueofgraphs.com/es/"
 
 fetch(link)
     .then((originales)=> originales.json())
-    .then((listacampeones)=> console.table(listacampeones))
+    .then(()=> console.table())
     .catch((invalido)=>console.log("No disponibles") )
 
     //RGAPI-7800471a-3b33-474b-acd3-789dbda90b26//
+/// api de 24 hs//
 
-fetch("camepones.json")
+
+
+
+
+/*fetch("campeones.json")
     .then((originales)=> originales.json())
-    .then((listacampeones)=> console.table(listacampeones))
-    .catch((invalido)=>console.log("No disponibles") )
+    .then( data=>{
+
+        const campeonesoriginales = data.campeonesoriginales
+        const campeonesContainer = document.getElementById("campeones-container")
+    
+        campeonesoriginales.forEach( campeonoriginal => {
+            const campeonesElement = document.createElement("p")
+            campeonesElement.textcontent = `Nombre: ${campeonoriginal.nombre}, Rol: ${campeonoriginal.linea},Nombre: ${campeonoriginal.rol} `
+            campeonesContainer.appendChild(campeonesElement)
+        })
+    
+    
+    
+    })
+    .catch((error)=>console.log("No disponibles") )*/
+
+
+
+
+
+    
+fetch("campeones.json")
+.then((originales)=> originales.json())
+.then( data=>{
+
+    const campeonesoriginales = data.campeonesoriginales
+    const campeonesContainer = document.getElementById("campeones-container")
+
+    campeonesoriginales.forEach( campeonoriginal => {
+        const campeonesElement = document.createElement("p")
+        campeonesElement.textcontent = `nombre: ${campeonoriginal.nombre}, linea: ${campeonoriginal.linea}, rol: ${campeonoriginal.rol} `
+        campeonesContainer.appendChild(campeonesElement)
+    })
+
+
+
+})
+.catch(error =>{
+    console.error("No disponibles") 
+})

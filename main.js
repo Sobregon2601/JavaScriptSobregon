@@ -182,3 +182,26 @@ filtrarboton.addEventListener("click", () => {filtrarCampeon();
 
 const agregarBtn = document.getElementById("agregarcampeon")
 agregarBtn.addEventListener("click",agregarcampeon)
+
+
+
+
+fetch("campeones.json")
+    .then((originales)=> originales.json())
+    .then( data=>{
+
+        const campeonesoriginales = data.campeonesoriginales
+        const campeonesContainer = document.getElementById("campeones-container")
+    
+        campeonesoriginales.forEach( campeonoriginal => {
+            const campeonesElement = document.createElement("p")
+            campeonesElement.textcontent = `nombre: ${campeonoriginal.nombre}, linea: ${campeonoriginal.linea}, rol: ${campeonoriginal.rol} `
+            campeonesContainer.appendChild(campeonesElement)
+        })
+    
+    
+    
+    })
+    .catch(error =>{
+        console.error("No disponibles") 
+    })

@@ -1,44 +1,50 @@
-[
-    {
-        "nombre": "Aurelion",
-        "linea":"mid",
-        "rol":"mago",
-        "imagen":"en proceso"
-    },
-    {
-        "nombre": "Twiitch",
-        "linea":"adc",
-        "rol":"tirador",
-        "imagen":"en proceso"
-    },
-    {
-        "nombre": "Trundle",
-        "linea":"Jungla",
-        "rol":"guerrero",
-        "imagen":"en proceso"
-    },
-    {
-        "nombre": "Shaco",
-        "linea":"jungla",
-        "rol":"asesino",
-        "imagen":"en proceso"
-    },
-    {
-        "nombre": "Nocturne",
-        "linea":"jungla",
-        "rol":"asesino",
-        "imagen":"en proceso"
-    },
-    {
-        "nombre": "Lux",
-        "linea":"support",
-        "rol":"mago",
-        "imagen":"en proceso"
-    },
-    {
-        "nombre": "Garen",
-        "linea":"top",
-        "rol":"guerrero",
-        "imagen":"en proceso"
-    }
-]
+
+
+{
+
+    "cameponesoriginales":
+
+    [
+        {
+            "nombre": "Aurelion",
+            "linea":"mid",
+            "rol":"mago",
+            "imagen":"en proceso"
+        },
+        {
+            "nombre": "Twiitch",
+            "linea":"adc",
+            "rol":"tirador",
+            "imagen":"en proceso"
+        },
+        {
+            "nombre": "Trundle",
+            "linea":"Jungla",
+            "rol":"guerrero",
+            "imagen":"en proceso"
+        },
+        {
+            "nombre": "Shaco",
+            "linea":"jungla",
+            "rol":"asesino",
+            "imagen":"en proceso"
+        },
+        {
+            "nombre": "Nocturne",
+            "linea":"jungla",
+            "rol":"asesino",
+            "imagen":"en proceso"
+        },
+        {
+            "nombre": "Lux",
+            "linea":"support",
+            "rol":"mago",
+            "imagen":"en proceso"
+        },
+        {
+            "nombre": "Garen",
+            "linea":"top",
+            "rol":"guerrero",
+            "imagen":"en proceso"
+        }
+]}
