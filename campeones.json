@@ -1,0 +1,5 @@
+new Campeon("Warwick", "Jungla", "Asesino", 'assets/warwick.jpg');
+new Campeon("Varus", "Adc", "Mago", 'assets/varus.jpg');
+new Campeon("Akali", "Mid", "Asesino", 'assets/sion.jpg');
+new Campeon("Sion", "Adc", "Tanque", 'assets/sion.jpg');
+new Campeon("Leona", "Jungla", "Tanque", 'assets/leona.jpg');

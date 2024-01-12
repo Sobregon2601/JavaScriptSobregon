@@ -156,3 +156,19 @@ function agregarcampeon(){
 
 const agregarBtn = document.getElementById("agregarProducto")
 agregarBtn.addEventListener("click",agregarProducto)
+
+
+let link = "https://www.leagueofgraphs.com/es/"
+
+
+fetch(link)
+    .then((originales)=> originales.json())
+    .then((listacampeones)=> console.table(listacampeones))
+    .catch((invalido)=>console.log("No disponibles") )
+
+    //RGAPI-7800471a-3b33-474b-acd3-789dbda90b26//
+
+fetch("camepones.json")
+    .then((originales)=> originales.json())
+    .then((listacampeones)=> console.table(listacampeones))
+    .catch((invalido)=>console.log("No disponibles") )
