@@ -1,5 +1,44 @@
-new Campeon("Warwick", "Jungla", "Asesino", 'assets/warwick.jpg');
-new Campeon("Varus", "Adc", "Mago", 'assets/varus.jpg');
-new Campeon("Akali", "Mid", "Asesino", 'assets/sion.jpg');
-new Campeon("Sion", "Adc", "Tanque", 'assets/sion.jpg');
-new Campeon("Leona", "Jungla", "Tanque", 'assets/leona.jpg');
+[
+    {
+        "nombre": "Aurelion",
+        "linea":"mid",
+        "rol":"mago",
+        "imagen":"en proceso"
+    },
+    {
+        "nombre": "Twiitch",
+        "linea":"adc",
+        "rol":"tirador",
+        "imagen":"en proceso"
+    },
+    {
+        "nombre": "Trundle",
+        "linea":"Jungla",
+        "rol":"guerrero",
+        "imagen":"en proceso"
+    },
+    {
+        "nombre": "Shaco",
+        "linea":"jungla",
+        "rol":"asesino",
+        "imagen":"en proceso"
+    },
+    {
+        "nombre": "Nocturne",
+        "linea":"jungla",
+        "rol":"asesino",
+        "imagen":"en proceso"
+    },
+    {
+        "nombre": "Lux",
+        "linea":"support",
+        "rol":"mago",
+        "imagen":"en proceso"
+    },
+    {
+        "nombre": "Garen",
+        "linea":"top",
+        "rol":"guerrero",
+        "imagen":"en proceso"
+    }
+]
